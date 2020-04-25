@@ -16,7 +16,8 @@ function initializeDiscourseMatheditor(api) {
         showModal("matheditor-modal").set("toolbarEvent", this.toolbarEvent);
 
             Ember.run.later((function() {
-              const mathfield = MathLive.makeMathField('mathfield');
+              const mathfield = MathLive.makeMathField('mathfield',{ virtualKeyboardMode: "manual"});
+              console.log(mathfield);
 
             }), 50);
       }

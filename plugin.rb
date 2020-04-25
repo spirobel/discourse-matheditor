@@ -5,6 +5,7 @@
 # version: 0.1
 # authors: spirobel
 # url: https://github.com/spirobel
+register_asset 'stylesheets/common/mathlive.core.css'
 register_asset 'stylesheets/common/mathlive.css'
 register_asset 'stylesheets/common/discourse-matheditor.scss'
 register_asset 'stylesheets/desktop/discourse-matheditor.scss', :desktop
