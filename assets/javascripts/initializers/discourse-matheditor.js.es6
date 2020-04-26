@@ -1,24 +1,26 @@
 import { withPluginApi } from "discourse/lib/plugin-api";
 import showModal from "discourse/lib/show-modal";
 import loadScript from "discourse/lib/load-script";
+import { getOwner } from 'discourse-common/lib/get-owner';
 
 function initializeDiscourseMatheditor(api) {
   loadScript("/plugins/DiscourseMatheditor/mathlive/mathlive.js");
 
- //MathLive.makeMathField('mathfield');
-
+ //make sure the keyboard is turned off
+ api.onAppEvent('modal:body-dismissed', function(){
+       const controller = getOwner(this).lookup('controller:composer');
+       controller.toolbarEvent.mathfield.$perform("hideVirtualKeyboard")
+      });
 
 
   api.modifyClass("controller:composer", {
 
     actions: {
       showPollB() {
-        showModal("matheditor-modal").set("toolbarEvent", this.toolbarEvent);
-
-            Ember.run.later((function() {
-              const mathfield = MathLive.makeMathField('mathfield',{ virtualKeyboardMode: "manual"});
-              console.log(mathfield);
-
+        const modalcontroller = showModal("matheditor-modal").set("toolbarEvent", this.toolbarEvent);
+            Ember.run.later(this, (function() {
+              console.log(this)
+              this.toolbarEvent.mathfield = MathLive.makeMathField('mathfield',{ virtualKeyboardMode: "manual"});
             }), 50);
       }
     }
