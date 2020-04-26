@@ -16,7 +16,7 @@ function initializeDiscourseMatheditor(api) {
   api.modifyClass("controller:composer", {
 
     actions: {
-      showPollB() {
+      showMathEditor() {
         const modalcontroller = showModal("matheditor-modal").set("toolbarEvent", this.toolbarEvent);
             Ember.run.later(this, (function() {
               this.toolbarEvent.mathfield = MathLive.makeMathField('mathfield',{ virtualKeyboardMode: "manual"});
@@ -29,9 +29,9 @@ function initializeDiscourseMatheditor(api) {
 
   api.addToolbarPopupMenuOptionsCallback(() => {
      return {
-       action: "showPollB",
+       action: "showMathEditor",
        icon: "chart-bar",
-       label: "discourse-matheditor.openeditor",
+       label: "discourse_matheditor.openeditor",
      };
    });
 

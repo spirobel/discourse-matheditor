@@ -5,7 +5,7 @@ import EmberObject from "@ember/object";
 export default Controller.extend({
 
   actions: {
-    insertPoll() {
+    insertEq() {
 
       this.toolbarEvent.addText('$$\n'+this.toolbarEvent.mathfield.$text("latex-expanded")+'\n$$')
       this.send("closeModal");

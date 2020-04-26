@@ -1,3 +1,5 @@
 en:
   js:
     discourse_matheditor:
+      openeditor: "math editor"
+      insertEq: "insert equation"
