@@ -6,11 +6,9 @@ export default Controller.extend({
 
   actions: {
     insertPoll() {
-    console.log(this.toolbarEvent.mathfield.$text())
 
-      this.toolbarEvent.addText('$$\n'+this.toolbarEvent.mathfield.$text()+'\n$$')
+      this.toolbarEvent.addText('$$\n'+this.toolbarEvent.mathfield.$text("latex-expanded")+'\n$$')
       this.send("closeModal");
-      //this._setupPoll();
     }
   }
 });

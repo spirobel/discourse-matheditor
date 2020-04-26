@@ -19,7 +19,6 @@ function initializeDiscourseMatheditor(api) {
       showPollB() {
         const modalcontroller = showModal("matheditor-modal").set("toolbarEvent", this.toolbarEvent);
             Ember.run.later(this, (function() {
-              console.log(this)
               this.toolbarEvent.mathfield = MathLive.makeMathField('mathfield',{ virtualKeyboardMode: "manual"});
             }), 50);
       }
@@ -36,9 +35,7 @@ function initializeDiscourseMatheditor(api) {
      };
    });
 
-        //perform: e => e.applySurround('[size=4]', '[/size]', 'size_ui_default_text')
 
-  // https://github.com/discourse/discourse/blob/master/app/assets/javascripts/discourse/lib/plugin-api.js.es6
 }
 
 export default {
