@@ -9,6 +9,7 @@ function initializeDiscourseMatheditor(api) {
  //make sure the keyboard is turned off
  api.onAppEvent('modal:body-dismissed', function(){
        const controller = getOwner(this).lookup('controller:composer');
+       if(!controller.toolbarEvent || !controller.toolbarEvent.mathfield){return;}
        controller.toolbarEvent.mathfield.$perform("hideVirtualKeyboard")
       });
 
